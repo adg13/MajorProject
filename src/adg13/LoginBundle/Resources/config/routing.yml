@@ -1,0 +1,4 @@
+adg13_login_homepage:
+    pattern:  /
+    defaults: { _controller: adg13LoginBundle:Login:index}
+    

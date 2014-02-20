@@ -1,0 +1,6 @@
+adg13\LoginBundle\Entity\User:
+     properties:
+        email:
+             - NotBlank: ~
+        password:
+             - NotBlank: ~     

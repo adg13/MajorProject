@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>4x4 Response Group - Task Manager - Admin Panel</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/css/bootstrap.css" media="screen">
+        <link rel="stylesheet" href="/css/bootswatch.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="../bower_components/html5shiv/dist/html5shiv.js"></script>
+          <script src="../bower_components/respond/dest/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body> 
+        <div class="container">
+            <!-- Navbar
+            ================================================== -->
+            <div class="bs-docs-section" clearfix>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="bs-example">
+                            <div class="navbar navbar-default">
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                    <a class="navbar-brand" href="#">Admin</a>
+                                </div>
+                                <div class="navbar-collapse collapse navbar-responsive-collapse">
+                                    <ul class="nav navbar-nav">
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Member<b class="caret"></b></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="{{path('adg13_admin_add_member')}}">Add New Member</a></li>
+                                                <li><a href="{{path('adg13_admin_update_users')}}">Amend Details</a></li>
+                                                <li><a href="{{path('adg13_admin_show_users')}}">Show All Members</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% block body %}{% endblock %}
+        <script src="/js/jquery-1.10.2.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+        <script src="/js/bootswatch.js"></script>
+    </body>
+</html>
