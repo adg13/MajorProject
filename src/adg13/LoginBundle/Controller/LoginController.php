@@ -12,6 +12,8 @@ class LoginController extends Controller {
 
     public function indexAction(Request $request) {
 
+        
+        
         if ($request->getMethod() == 'POST') {
             $email = $request->get('email');
             $password = $request->get('password');
