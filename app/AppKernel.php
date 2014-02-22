@@ -17,7 +17,7 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle(),
-            new adg13\LoginBundle\adg13LoginBundle(),
+            new adg13\ProfileBundle\adg13ProfileBundle(),
             new adg13\AdminBundle\adg13AdminBundle(),
         );
 

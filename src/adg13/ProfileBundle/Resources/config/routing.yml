@@ -1,0 +1,18 @@
+adg13_homepage:
+    pattern: /
+    defaults:   { _controller: adg13ProfileBundle:Security:homepage }
+    
+adg13_login:
+    pattern:    /login
+    defaults:   { _controller: adg13ProfileBundle:Security:login }
+    
+adg13_login_check:
+    pattern:    /login_check    
+    
+adg13_admin_map:
+    pattern:    /admin/map
+    defaults:   { _controller: adg13AdminBundle:Admin:main }
+
+
+
+    

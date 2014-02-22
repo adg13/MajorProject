@@ -11,7 +11,24 @@ class AdminController extends Controller {
     public function mainAction() {
         return $this->render('adg13AdminBundle:AdminPanel:AdminPanel.html.twig');
     }
-
+    public function onDutyAction() {
+        return $this->render('adg13AdminBundle:AdminPanel:onDuty.html.twig');
+    }
+    
+    public function addMemberAction() {
+        return $this->render('adg13AdminBundle:AdminPanel:MemberCreate.html.twig');
+    }
+    
+    public function showMembersAction() {
+        return $this->render('adg13AdminBundle:AdminPanel:ShowMembers.html.twig');
+    }
+    
+    
+    
+    
+    
+    
+    
     public function addUserAction() {
         $user = new User();
         $user->setEmail("stasiek@wp.pl");
@@ -83,5 +100,23 @@ class AdminController extends Controller {
         $em->flush();
         return new Response('User with id: ' . $id . 'updated');
     }
+    public function addCarAction() { {
+            $user = new User();
+            $user->setEmail('dupa@dupa.pl');
+            $user->setPassword('haslo');
+
+            $car = new Car();
+
+            $car->setUser($user);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->persist($car);
+            $em->flush();
+
+            return new Response(
+                    'Created car id: ' . $car->getId() . ' and user id: ' . $user->getId()
+            );
+    }}
 
 }

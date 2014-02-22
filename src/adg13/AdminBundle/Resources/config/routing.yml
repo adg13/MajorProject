@@ -1,27 +1,14 @@
+adg13_logout:
+    pattern:     /logout    
+
+adg13_admin_on_duty:
+    pattern:    /admin/on_duty
+    defaults:   { _controller: adg13AdminBundle:Admin:onDuty }
+ 
 adg13_admin_add_member:
-    pattern:  /add_member
-    defaults: { _controller: adg13AdminBundle:Admin:addUser}    
-
-adg13_admin_main:
-    pattern:  /main
-    defaults: { _controller: adg13AdminBundle:Admin:main} 
+    pattern:    /admin/add_member
+    defaults:   { _controller: adg13AdminBundle:Admin:addMember } 
     
-adg13_admin_show_user:
-    pattern:  /show_user/{id}
-    defaults: { _controller: adg13AdminBundle:Admin:showUser}
-    
-adg13_admin_show_users:
-    pattern:  /show_users
-    defaults: { _controller: adg13AdminBundle:Admin:showAllUsers}
-
-adg13_admin_remove_users:
-    pattern:  /remove_user/{id}
-    defaults: { _controller: adg13AdminBundle:Admin:removeUser}
-    
-adg13_admin_update_users:
-    pattern:  /update_user
-    defaults: { _controller: adg13AdminBundle:Admin:updateUser}
-    
-adg13_admin_car_to_user:
-    pattern:  /car_to_user
-    defaults: { _controller: adg13AdminBundle:Admin:addCar}
+adg13_admin_show_members:
+    pattern:    /admin/show_members
+    defaults:   { _controller: adg13AdminBundle:Admin:showMembers }     
