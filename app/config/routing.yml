@@ -1,3 +1,7 @@
+adg13_user:
+    resource: "@adg13UserBundle/Resources/config/routing.yml"
+    prefix:   /
+
 adg13_admin:
     resource: "@adg13AdminBundle/Resources/config/routing.yml"
     prefix:   /

@@ -11,4 +11,39 @@
         </div>
     </div>
 </div>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>  
+                <th>Title</th>
+                <th>First name</th>
+                <th>Last Name</th>
+                <th>Address</th>
+                <th>Telefon</th>  
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+                <tr>
+                  <td>{{ user.id }}</td> 
+                  <td>{{ user.personal.title }}</td>
+                  <td>{{ user.personal.firstName }}</td>
+                  <td>{{ user.personal.lastname }}</td>
+                  <td>{{ user.address.toString() }}</td>
+                  <td>{{ user.address.tel }}</td>
+                  <td>{{ user.email }}</td>                 
+                </tr>
+            {% endfor %}           
+        </tbody>
+    </table>
+    <form action="{{ path('adg13_admin_generate_pdf') }}">
+    <div class="btn btn-info" type="submit">Export to Pdf</div>
+    </form>
+</div>
+</div>
+</div>
+</div>
 {% endblock %}

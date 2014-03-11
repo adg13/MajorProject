@@ -1,0 +1,62 @@
+{% extends 'adg13UserBundle:Template:index.html.twig' %}    
+{% block body %}
+<div class="container">
+    <div class="bs-docs-section">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="page-header">
+                    <h2 id="your_details">Your details</h2>
+                </div>
+            </div>           
+        </div>
+        <div class="well">
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-lg-12">
+                        <ul class="nav nav-tabs" style="margin-bottom: 15px;">
+                            <li class="active"><a href="#personal" data-toggle="tab">Personal</a></li>
+                            <li><a href="#address" data-toggle="tab">Address / Telefon</a></li>
+                            <li><a href="#bank_detials" data-toggle="tab">Bank Details</a></li>
+                            <li><a href="#cars" data-toggle="tab">Cars</a></li>
+                        </ul>
+                        <div id="myTabContent" class="tab-content">
+                            <div class="tab-pane fade active in" id="personal">
+                                <p>Title:   {{ user.personal.title }}</p>
+                                <p>First Name:   {{ user.personal.firstName }}</p>
+                                <p>Second Name:   {{ user.personal.secondName }}</p>
+                                <p>Lastname:   {{ user.personal.lastname }}</p>
+                                <p>Gender:   {{ user.personal.gender }}</p>
+                                <p>Date of birth:   {{ user.personal.dateOfBirth|date('Y-d-m')  }}</p>
+                            </div>
+                            <div class="tab-pane fade" id="address">
+                                <p>Line 1:   {{ user.address.line1 }}</p>
+                                <p>Line 2:   {{ user.address.line2 }}</p>
+                                <p>City/Town:   {{ user.address.city }}</p>
+                                <p>Post Code:   {{ user.address.postcode }}</p>
+                                <p>Region:   {{ user.address.region }}</p>
+                                <p>Tel:   {{ user.address.tel }}</p>
+                            </div>
+                            <div class="tab-pane fade" id="bank_detials">
+                                <p>Bank Name:   {{ user.bankDetails.bankName }}</p>
+                                <p>Sort Code:   {{ user.bankDetails.sortCode }}</p>
+                                <p>Account Number:   {{ user.bankDetails.accountNumber }}</p>
+                            </div>
+                            <div class="tab-pane fade" id="cars">
+                                {% for car in user.cars %}
+                                <p>Make: {{ car.make }}</p>
+                                <p>Model: {{ car.model }}</p>
+                                <p>Plates: {{ car.regPlates }}</p>
+                                <p>Engine: {{ car.engine }}</p>
+                                <p>Seats: {{ car.seats }}</p>
+                                {% endfor %}
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

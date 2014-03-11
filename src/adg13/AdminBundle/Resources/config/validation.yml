@@ -1,0 +1,196 @@
+adg13\ProfileBundle\Entity\User:
+    properties:
+        email:
+            - NotBlank: { message: "Please insert email address!" }
+            - Email:
+                message: The email "{{ value }}" is not a valid email.
+                checkMX: true
+        personal:
+            - Valid: ~
+        address:
+            - Valid: ~
+        bank_details:
+            - Valid: ~
+        cars:
+            - Valid: ~
+        roles:
+            - Valid: ~
+        privilidges:
+            - Valid: ~
+                             
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: 
+            fields: email
+            message: "This email already exists! Please choose another one."
+            
+adg13\AdminBundle\Entity\Personal:
+    properties:
+        title:          
+            - NotBlank: { message: "Please choose the title!" }
+            - Choice:
+                choices:  [null, Mr, Miss, Ms, Mrs]
+                message:  "Please choose a valid gender"
+        first_name:
+            - NotBlank: { message: "Please enter the first name!" }
+            - Length:
+                min: 2 
+                max: 50
+                minMessage: "First name must be at least {{ limit }} characters length."
+                maxMessage: "First name cannot be longer than {{ limit }} characters length."
+        second_name:
+            - Length:
+                min: 2 
+                max: 50
+                minMessage: "Second name must be at least {{ limit }} characters length."
+                maxMessage: "Second name cannot be longer than {{ limit }} characters length."
+        lastname:
+            - NotBlank: { message: "Please enter your lastname!" }
+            - Length:
+                min: 2 
+                max: 50
+                minMessage: "Lastname must be at least {{ limit }} characters length."
+                maxMessage: "Lastname cannot be longer than {{ limit }} characters length."
+        gender:
+            - Choice:
+                choices:  [null, male, female]
+                message:  "Please choose a valid gender"
+        date_of_birth:
+            - NotBlank: { message: "Please enter the date of birth!" }
+            - Date: {message: "Please entea s correct date of birth."}  
+        nationality:
+            - NotBlank: { message: "Please enter the nationality!" }
+            - Length:
+                min: 3 
+                max: 50
+                minMessage: "Your lastname must be at least {{ limit }} characters length."
+                maxMessage: "Your lastname cannot be longer than {{ limit }} characters length."
+                
+adg13\AdminBundle\Entity\Address:
+    properties:
+        line1:
+             - NotBlank: { message: "Please enter a line 1 address!" }
+             - Length:
+                min: 3 
+                max: 50
+                minMessage: "Line 1 address must be at least {{ limit }} characters length."
+                maxMessage: "Line 1 address cannot be longer than {{ limit }} characters length."
+        line2:
+             - NotBlank: { message: "Please enter a line 2 address!" }
+             - Length:
+                min: 3 
+                max: 50
+                minMessage: "Line 2 address must be at least {{ limit }} characters length."
+                maxMessage: "Line 2 address cannot be longer than {{ limit }} characters length."
+             
+        city:
+            - NotBlank: { message: "Please enter a city!" }
+            - Length:
+                min: 3 
+                max: 50
+                minMessage: "Name of the city must be at least {{ limit }} characters length."
+                maxMessage: "Name of the city cannot be longer than {{ limit }} characters length."   
+        postcode: 
+            - NotBlank: { message: "Please enter a postcode!" }
+            - Length:
+                min: 7 
+                max: 8
+                minMessage: "Post code must be at least {{ limit }} characters length."
+                maxMessage: "Post code cannot be longer than {{ limit }} characters length."
+        region:
+            - NotBlank: { message: "Please enter a region!" }
+            - Length:
+                min: 3 
+                max: 50
+                minMessage: "Region name be at least {{ limit }} characters length."
+                maxMessage: "Region name cannot be longer than {{ limit }} characters length."
+        tel:
+            - NotBlank: { message: "Please enter a telephon number!" }
+            - Length:
+                min: 11 
+                max: 13
+                minMessage: "Telephon number be at least {{ limit }} characters length."
+                maxMessage: "Telephon number cannot be longer than {{ limit }} characters length."
+
+adg13\AdminBundle\Entity\BankDetails:
+    properties:
+        bank_name:
+            - NotBlank: { message: "Please enter a bank name!" }
+            - Length:
+                min: 3 
+                max: 50
+                minMessage: "Bank name be at least {{ limit }} characters length."
+                maxMessage: "Bank name cannot be longer than {{ limit }} characters length."
+        sort_code:
+            - NotBlank: { message: "Please enter a sort code in a format xx-xx-xx!" }
+            - Length:
+                min: 8 
+                max: 8
+                minMessage: "Please enter sort code in a format xx-xx-xx"
+                maxMessage: "Please enter sort code in a format xx-xx-xx"
+        account_number:
+            - NotBlank: { message: "Please enter a bank account number!" }
+            - Length:
+                min: 8 
+                max: 8
+                minMessage: "Bank account has to be 8 characters long"
+                maxMessage: "Bank account has to be 8 characters long"
+                
+adg13\AdminBundle\Entity\Car:
+    properties:
+        make:
+            - NotBlank: { message: "Please enter a car make!" }
+            - Length:
+                min: 2
+                max: 20
+                minMessage: "Bank account has to be 2 characters long"
+                maxMessage: "Bank account has to be 20 characters long"
+        model:
+            - NotBlank: { message: "Please enter a model name!" }
+            - Length:
+                min: 2 
+                max: 20
+                minMessage: "Bank account has to be min 2 characters long"
+                maxMessage: "Bank account has to be max 20 characters long"
+        reg_plates:
+            - NotBlank: { message: "Please enter a plates number!" }
+            - Length:
+                min: 7
+                max: 8
+                minMessage: "Plates have to be at least 7 characters long"
+                maxMessage: "Plates can be max 8 characters long"
+        engine:
+            - NotBlank: { message: "Please enter a engine details!" }
+            - Length:
+                min: 2 
+                max: 20
+                minMessage: "Bank account has to be 2 characters long"
+                maxMessage: "Bank account has to be 20 characters long"
+        seats:
+            - Type:
+                type: integer
+                message: 'The value {{ value }} is not a valid {{ type }}.'
+            - Range:
+                min: 2
+                max: 50
+                minMessage: 'Car cannot have less then 2 seats!'
+                maxMessage: 'Are you sure it is not a spaceship?'
+
+
+
+adg13\AdminBundle\Entity\Privilidges:
+    properties:
+        status:
+            - NotBlank: { message: "Please choose the status!" }
+            - Choice:
+                choices:  [null, TRAINEE, MEMBER]
+                message:  "Please choose a valid status!"         
+                
+adg13\AdminBundle\Entity\Role:
+    properties:
+        role:
+            - NotBlank: { message: "Please choose the role!" }
+            - Choice:
+                choices:  [null, ROLE_USER, ROLE_ADMIN]
+                message:  "Please choose a valid role!"     
+            
+            

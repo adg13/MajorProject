@@ -1,0 +1,9 @@
+adg13_user_homepage:
+    pattern:  /user/details
+    defaults: { _controller: adg13UserBundle:User:index }
+    
+adg13_user_calendar:
+    pattern:  /user/calendar
+    defaults: { _controller: adg13UserBundle:Calendar:index }
+    
+

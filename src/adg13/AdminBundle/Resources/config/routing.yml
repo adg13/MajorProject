@@ -1,14 +1,31 @@
 adg13_logout:
     pattern:     /logout    
 
+adg13_admin_map:
+    pattern:    /admin/map
+    defaults:   { _controller: adg13AdminBundle:Admin:main }
+
 adg13_admin_on_duty:
     pattern:    /admin/on_duty
     defaults:   { _controller: adg13AdminBundle:Admin:onDuty }
  
 adg13_admin_add_member:
     pattern:    /admin/add_member
-    defaults:   { _controller: adg13AdminBundle:Admin:addMember } 
+    defaults:   { _controller: adg13AdminBundle:CreateUser:addMember } 
     
 adg13_admin_show_members:
     pattern:    /admin/show_members
-    defaults:   { _controller: adg13AdminBundle:Admin:showMembers }     
+    defaults:   { _controller: adg13AdminBundle:ShowMembers:index }     
+    
+adg13_admin_quick_add_member:
+    pattern:    /admin/quick_add_member
+    defaults:   { _controller: adg13AdminBundle:Admin:quickAddMember }  
+    
+adg13_admin_map_add_markers:
+    pattern:    /admin/map_add_markers
+    defaults:   { _controller: adg13AdminBundle:Map:addMarkers }
+    
+adg13_admin_generate_pdf:
+    pattern:    /admin/show_members/generate_pdf
+    defaults:   { _controller: adg13AdminBundle:GeneratePDF:index }
+    
