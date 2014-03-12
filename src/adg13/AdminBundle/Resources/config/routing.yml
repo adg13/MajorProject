@@ -24,8 +24,3 @@ adg13_admin_quick_add_member:
 adg13_admin_map_add_markers:
     pattern:    /admin/map_add_markers
     defaults:   { _controller: adg13AdminBundle:Map:addMarkers }
-    
-adg13_admin_generate_pdf:
-    pattern:    /admin/show_members/generate_pdf
-    defaults:   { _controller: adg13AdminBundle:GeneratePDF:index }
-    

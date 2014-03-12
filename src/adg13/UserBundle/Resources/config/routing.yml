@@ -5,5 +5,12 @@ adg13_user_homepage:
 adg13_user_calendar:
     pattern:  /user/calendar
     defaults: { _controller: adg13UserBundle:Calendar:index }
+   
+adg13_user_calendar_add_event:
+    pattern:  /user/calendar/add_event
+    defaults: { _controller: adg13UserBundle:Calendar:addEvent }
     
+adg13_user_calendar_display_events:
+    pattern:  /user/calendar/displays_event
+    defaults: { _controller: adg13UserBundle:Calendar:displayEvents }
 

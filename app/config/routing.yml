@@ -9,4 +9,3 @@ adg13_admin:
 adg13_profile:
     resource: "@adg13ProfileBundle/Resources/config/routing.yml"
     prefix:   /
-
