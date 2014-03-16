@@ -4,7 +4,6 @@ namespace adg13\AdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-
 /**
  * @ORM\Table(name="bank_details")
  * @ORM\Entity
@@ -24,7 +23,7 @@ class BankDetails {
     private $bank_name;
 
     /**
-      * @ORM\Column(type="string", length=8)
+     * @ORM\Column(type="string", length=8)
      */
     private $sort_code;
 
@@ -32,20 +31,18 @@ class BankDetails {
      * @ORM\Column(type="string", length=8)
      */
     private $account_number;
-     
+
     /**
      * @ORM\OneToOne(targetEntity="adg13\ProfileBundle\Entity\User", mappedBy="bank_details")
      */
     private $user;
-
 
     /**
      * Get id
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -55,8 +52,7 @@ class BankDetails {
      * @param string $bankName
      * @return BankDetails
      */
-    public function setBankName($bankName)
-    {
+    public function setBankName($bankName) {
         $this->bank_name = $bankName;
 
         return $this;
@@ -67,8 +63,7 @@ class BankDetails {
      *
      * @return string 
      */
-    public function getBankName()
-    {
+    public function getBankName() {
         return $this->bank_name;
     }
 
@@ -78,8 +73,7 @@ class BankDetails {
      * @param integer $sortCode
      * @return BankDetails
      */
-    public function setSortCode($sortCode)
-    {
+    public function setSortCode($sortCode) {
         $this->sort_code = $sortCode;
 
         return $this;
@@ -90,15 +84,36 @@ class BankDetails {
      *
      * @return integer 
      */
-    public function getSortCode()
-    {
+    public function getSortCode() {
         return $this->sort_code;
     }
 
     /**
+     * Set user
+     *
+     * @param \adg13\ProfileBundle\Entity\User $user
+     * @return BankDetails
+     */
+    public function setUser(\adg13\ProfileBundle\Entity\User $user = null) {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \adg13\ProfileBundle\Entity\User 
+     */
+    public function getUser() {
+        return $this->user;
+    }
+
+
+    /**
      * Set account_number
      *
-     * @param integer $accountNumber
+     * @param string $accountNumber
      * @return BankDetails
      */
     public function setAccountNumber($accountNumber)
@@ -111,33 +126,10 @@ class BankDetails {
     /**
      * Get account_number
      *
-     * @return integer 
+     * @return string 
      */
     public function getAccountNumber()
     {
         return $this->account_number;
-    }
-
-    /**
-     * Set user
-     *
-     * @param \adg13\ProfileBundle\Entity\User $user
-     * @return BankDetails
-     */
-    public function setUser(\adg13\ProfileBundle\Entity\User $user = null)
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * Get user
-     *
-     * @return \adg13\ProfileBundle\Entity\User 
-     */
-    public function getUser()
-    {
-        return $this->user;
     }
 }

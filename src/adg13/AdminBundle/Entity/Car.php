@@ -36,6 +36,11 @@ class Car {
      * @ORM\Column(type="string", length=20)
      */
     private $engine;
+    
+    /**
+     * @ORM\Column(type="string", length=6)
+     */
+    private $fuel;
 
     /**
      * @ORM\Column(type="integer")
@@ -196,5 +201,28 @@ class Car {
     public function getUsers()
     {
         return $this->users;
+    }
+
+    /**
+     * Set fuel
+     *
+     * @param string $fuel
+     * @return Car
+     */
+    public function setFuel($fuel)
+    {
+        $this->fuel = $fuel;
+
+        return $this;
+    }
+
+    /**
+     * Get fuel
+     *
+     * @return string 
+     */
+    public function getFuel()
+    {
+        return $this->fuel;
     }
 }

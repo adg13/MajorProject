@@ -39,6 +39,13 @@ class CarType extends AbstractType {
                 'placeholder' => 'Engine  Size',
             )
         ));
+        
+        $builder->add('fuel', 'choice', array(
+            'label' => 'Fuel Type',
+            'choices' => array('Gas' => 'Gas', 'Diesel' => 'Diesel', 'Petrol' => 'Petrol'),
+            'required' => true,
+            'empty_value' => 'Please insert fuel type.',
+        ));
 
         $builder->add('seats', 'integer', array(
             'label' => 'No. seats',
