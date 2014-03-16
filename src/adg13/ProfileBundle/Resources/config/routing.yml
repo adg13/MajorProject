@@ -12,6 +12,10 @@ adg13_login_check:
 adg13_authorisation:
     pattern: /authorize
     defaults:   { _controller: adg13ProfileBundle:Authorisation:index}
+    
+adg13_change_password:
+    pattern: /change_password
+    defaults:   { _controller: adg13ProfileBundle:ChangePassword:index}
 
 
 

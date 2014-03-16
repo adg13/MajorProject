@@ -16,7 +16,7 @@ use Symfony\Component\HttpFoundation\Request;
 class CreateUserController extends Controller {
 
     public function addMemberAction(Request $request) {
-
+        
         $user = new User();
         $personal = new Personal();
         $user->setPersonal($personal);

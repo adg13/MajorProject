@@ -3,6 +3,12 @@
     width: 100px;
     
 }
+
+.datetime_widget select{
+    float: left;
+    width: 100px;
+    
+}
 .btn-right{
     float:right;
     padding-right: 15px

@@ -86,7 +86,19 @@ class User implements UserInterface, JsonSerializable, \Serializable {
      */
     private $roles;
 
+    /**
+     * @ORM\OneToMany(targetEntity="adg13\UserBundle\Entity\Event", mappedBy="user", cascade={"persist"})
+     */
+    private $events;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="adg13\TaskBundle\Entity\Task", mappedBy="user", cascade={"persist"})
+     */
+    private $tasks;
+
     public function __construct() {
+        $this->events = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->tasks = new \Doctrine\Common\Collections\ArrayCollection();
         $this->roles = new \Doctrine\Common\Collections\ArrayCollection();
         $this->isActive = true;
         $this->salt = md5(uniqid(null, true));
@@ -94,6 +106,10 @@ class User implements UserInterface, JsonSerializable, \Serializable {
         $this->cars = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+    public function __toString() {
+        return $this->getPersonal()->getFirstName().' '.$this->getPersonal()->getLastname();
+    }
+    
     /**
      * @inheritDoc
      */
@@ -362,7 +378,6 @@ class User implements UserInterface, JsonSerializable, \Serializable {
 
     public function getRoles() {
         return $this->roles->toArray();
-
     }
 
     public function isAccountNonExpired() {
@@ -423,17 +438,82 @@ class User implements UserInterface, JsonSerializable, \Serializable {
         $this->roles->removeElement($roles);
     }
 
-
     /**
      * Set roles
      *
      * @param \adg13\AdminBundle\Entity\Role $roles
      * @return User
      */
-    public function setRoles(\adg13\AdminBundle\Entity\Role $roles = null)
-    {
+    public function setRoles(\adg13\AdminBundle\Entity\Role $roles = null) {
         $this->roles = $roles;
 
         return $this;
+    }
+
+
+    /**
+     * Add events
+     *
+     * @param \adg13\UserBundle\Entity\Event $events
+     * @return User
+     */
+    public function addEvent(\adg13\UserBundle\Entity\Event $events)
+    {
+        $this->events[] = $events;
+
+        return $this;
+    }
+
+    /**
+     * Remove events
+     *
+     * @param \adg13\UserBundle\Entity\Event $events
+     */
+    public function removeEvent(\adg13\UserBundle\Entity\Event $events)
+    {
+        $this->events->removeElement($events);
+    }
+
+    /**
+     * Get events
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getEvents()
+    {
+        return $this->events;
+    }
+
+    /**
+     * Add tasks
+     *
+     * @param \adg13\TaskBundle\Entity\Task $tasks
+     * @return User
+     */
+    public function addTask(\adg13\TaskBundle\Entity\Task $tasks)
+    {
+        $this->tasks[] = $tasks;
+
+        return $this;
+    }
+
+    /**
+     * Remove tasks
+     *
+     * @param \adg13\TaskBundle\Entity\Task $tasks
+     */
+    public function removeTask(\adg13\TaskBundle\Entity\Task $tasks)
+    {
+        $this->tasks->removeElement($tasks);
+    }
+
+    /**
+     * Get tasks
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getTasks()
+    {
+        return $this->tasks;
     }
 }

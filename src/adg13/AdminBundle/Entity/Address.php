@@ -51,6 +51,11 @@ class Address implements \JsonSerializable{
      * @ORM\OneToOne(targetEntity="adg13\ProfileBundle\Entity\User", mappedBy="address")
      */
     private $user;
+    
+    /**
+     * @ORM\OneToOne(targetEntity="adg13\TaskBundle\Entity\Contact", mappedBy="address", cascade={"persist"})
+     */
+    private $contact;
 
     public function toString() {
         return $this->line1 . ', ' . $this->line2 . ', ' . $this->city . ', ' . $this->postcode . ', ' . $this->region;
@@ -224,4 +229,27 @@ class Address implements \JsonSerializable{
         );
     }
 
+
+    /**
+     * Set contact
+     *
+     * @param \adg13\TaskBundle\Entity\Contact $contact
+     * @return Address
+     */
+    public function setContact(\adg13\TaskBundle\Entity\Contact $contact = null)
+    {
+        $this->contact = $contact;
+
+        return $this;
+    }
+
+    /**
+     * Get contact
+     *
+     * @return \adg13\TaskBundle\Entity\Contact 
+     */
+    public function getContact()
+    {
+        return $this->contact;
+    }
 }

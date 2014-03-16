@@ -1,0 +1,8 @@
+adg13\TaskBundle\Entity\Task:
+    properties:
+        description:
+            - NotBlank: { message: "Please insert description!" }
+
+                             
+
+            

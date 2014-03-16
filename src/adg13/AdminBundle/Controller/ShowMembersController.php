@@ -3,7 +3,6 @@
 namespace adg13\AdminBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Response;
 
 class ShowMembersController extends Controller {
 
@@ -15,8 +14,6 @@ class ShowMembersController extends Controller {
         return $this->render('adg13AdminBundle:AdminPanel:ShowMembers.html.twig', array(
                     "users" => $users,
         ));
-
-        
     }
 
 }

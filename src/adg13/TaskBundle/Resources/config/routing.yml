@@ -1,0 +1,3 @@
+adg13_task_add_task:
+    pattern:  /admin/add_task
+    defaults: { _controller: adg13TaskBundle:AddTask:index }

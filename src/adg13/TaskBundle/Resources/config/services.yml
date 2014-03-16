@@ -1,0 +1,7 @@
+parameters:
+#    adg13_task.example.class: adg13\TaskBundle\Example
+
+services:
+#    adg13_task.example:
+#        class: %adg13_task.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

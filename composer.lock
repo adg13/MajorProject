@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "1125058d775273dcee036cba521fe087",
+    "hash": "cbc55e0fb332c6c50921247b491872e8",
     "packages": [
         {
             "name": "braincrafted/bootstrap-bundle",
@@ -1283,17 +1283,17 @@
         },
         {
             "name": "symfony/monolog-bundle",
-            "version": "v2.5.1",
+            "version": "dev-master",
             "target-dir": "Symfony/Bundle/MonologBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/MonologBundle.git",
-                "reference": "71ad844ac29401f86619f9d643393265451e858b"
+                "reference": "bf582cd118b5700126ea49cb1c0b90ac2cd6f0f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/MonologBundle/zipball/71ad844ac29401f86619f9d643393265451e858b",
-                "reference": "71ad844ac29401f86619f9d643393265451e858b",
+                "url": "https://api.github.com/repos/symfony/MonologBundle/zipball/bf582cd118b5700126ea49cb1c0b90ac2cd6f0f0",
+                "reference": "bf582cd118b5700126ea49cb1c0b90ac2cd6f0f0",
                 "shasum": ""
             },
             "require": {
@@ -1341,7 +1341,7 @@
                 "log",
                 "logging"
             ],
-            "time": "2014-02-19 14:49:26"
+            "time": "2014-02-22 16:31:59"
         },
         {
             "name": "symfony/swiftmailer-bundle",
@@ -1669,9 +1669,9 @@
 
     ],
     "minimum-stability": "stable",
-    "stability-flags": [
-
-    ],
+    "stability-flags": {
+        "symfony/monolog-bundle": 20
+    },
     "platform": {
         "php": ">=5.3.3"
     },

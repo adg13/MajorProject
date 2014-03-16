@@ -9,7 +9,7 @@ use JsonSerializable;
  * @ORM\Table(name="event")
  * @ORM\Entity
  */
-class Event implements JsonSerializable{
+class Event implements JsonSerializable {
 
     /**
      * @ORM\Column(type="integer")
@@ -33,11 +33,16 @@ class Event implements JsonSerializable{
      */
     private $end;
 
-
     /**
      * @ORM\Column(name="all_day", type="boolean")
      */
     private $allDay;
+
+    /**
+     * 
+     * @ORM\ManyToOne(targetEntity="adg13\ProfileBundle\Entity\User", inversedBy="events", cascade={"persist"})
+     */
+    private $user;
 
     public function jsonSerialize() {
         return array(
@@ -48,14 +53,12 @@ class Event implements JsonSerializable{
         );
     }
 
-
     /**
      * Get id
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -65,8 +68,7 @@ class Event implements JsonSerializable{
      * @param string $title
      * @return Event
      */
-    public function setTitle($title)
-    {
+    public function setTitle($title) {
         $this->title = $title;
 
         return $this;
@@ -77,8 +79,7 @@ class Event implements JsonSerializable{
      *
      * @return string 
      */
-    public function getTitle()
-    {
+    public function getTitle() {
         return $this->title;
     }
 
@@ -88,8 +89,7 @@ class Event implements JsonSerializable{
      * @param \DateTime $start
      * @return Event
      */
-    public function setStart($start)
-    {
+    public function setStart($start) {
         $this->start = $start;
 
         return $this;
@@ -100,8 +100,7 @@ class Event implements JsonSerializable{
      *
      * @return \DateTime 
      */
-    public function getStart()
-    {
+    public function getStart() {
         return $this->start;
     }
 
@@ -111,8 +110,7 @@ class Event implements JsonSerializable{
      * @param \DateTime $end
      * @return Event
      */
-    public function setEnd($end)
-    {
+    public function setEnd($end) {
         $this->end = $end;
 
         return $this;
@@ -123,8 +121,7 @@ class Event implements JsonSerializable{
      *
      * @return \DateTime 
      */
-    public function getEnd()
-    {
+    public function getEnd() {
         return $this->end;
     }
 
@@ -134,8 +131,7 @@ class Event implements JsonSerializable{
      * @param boolean $allDay
      * @return Event
      */
-    public function setAllDay($allDay)
-    {
+    public function setAllDay($allDay) {
         $this->allDay = $allDay;
 
         return $this;
@@ -146,8 +142,31 @@ class Event implements JsonSerializable{
      *
      * @return boolean 
      */
-    public function getAllDay()
-    {
+    public function getAllDay() {
         return $this->allDay;
+    }
+
+
+    /**
+     * Set user
+     *
+     * @param \adg13\ProfileBundle\Entity\User $user
+     * @return Event
+     */
+    public function setUser(\adg13\ProfileBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \adg13\ProfileBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

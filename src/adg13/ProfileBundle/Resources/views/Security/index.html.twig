@@ -29,9 +29,8 @@
         <div class="container">
             <form class="form-signin" role="form" action="{{ path('adg13_login_check') }}" method="post">
                 <h2 class="form-signin-heading">Please sign in</h2>
-
                 {% if error %}
-                <div>{{ error.message }}</div>
+                <div class="alert alert-danger">{{ error.message }}</div>
                 {% endif %}
                 <input type="email" class="form-control" id="username" name="_username" placeholder="Email address" required autofocus>
                 <input type="password" class="form-control" id="password" name="_password"  placeholder="Password" required>

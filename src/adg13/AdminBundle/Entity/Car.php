@@ -41,10 +41,9 @@ class Car {
      * @ORM\Column(type="integer")
      */
     private $seats;
-    // ...
     /**
      * @ORM\ManyToMany(targetEntity="adg13\ProfileBundle\Entity\User", mappedBy="cars")
-     * */
+     */
     private $users;
 
     public function __construct() {

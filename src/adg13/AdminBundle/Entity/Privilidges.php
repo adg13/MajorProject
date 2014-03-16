@@ -24,7 +24,7 @@ class Privilidges implements JsonSerializable {
      */
     private $status;
     /**
-     * @ORM\OneToOne(targetEntity="adg13\ProfileBundle\Entity\User", mappedBy="privilidge")
+     * @ORM\OneToOne(targetEntity="adg13\ProfileBundle\Entity\User", mappedBy="privilidges")
      */
     private $user;
 
