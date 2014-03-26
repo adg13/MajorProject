@@ -86,3 +86,8 @@ swiftmailer:
     username:   agawryszewski5  
     password:   adriano2005
     
+knp_snappy:
+    pdf:
+        enabled:    true
+        binary:     /Applications/MAMP/htdocs/Projectp/vendor/h4cc/wkhtmltopdf-i386/bin/wkhtmltopdf-i368
+        options:    []

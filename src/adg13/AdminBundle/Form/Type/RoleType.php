@@ -13,7 +13,7 @@ class RoleType extends AbstractType {
         $builder->add('role', 'choice', array(
             'label' => 'Role',
             'choices' => array('ROLE_USER' => 'User','ROLE_ADMIN' => 'Admin'),
-            'required' => false,
+            'required' => true,
             'empty_value' => 'Choose a role',
         ));
     }

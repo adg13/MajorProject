@@ -1,3 +1,7 @@
+adg13_notification:
+    resource: "@adg13NotificationBundle/Resources/config/routing.yml"
+    prefix:   /
+
 adg13_task:
     resource: "@adg13TaskBundle/Resources/config/routing.yml"
     prefix:   /

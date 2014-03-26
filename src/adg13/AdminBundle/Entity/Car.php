@@ -173,10 +173,10 @@ class Car {
     /**
      * Add users
      *
-     * @param \adg13\AdminBundle\Entity\User $users
+     * @param \adg13\ProfileBundle\Entity\User $users
      * @return Car
      */
-    public function addUser(\adg13\AdminBundle\Entity\User $users)
+    public function addUser(\adg13\ProfileBundle\Entity\User $users)
     {
         $this->users[] = $users;
 
@@ -186,9 +186,9 @@ class Car {
     /**
      * Remove users
      *
-     * @param \adg13\AdminBundle\Entity\User $users
+     * @param \adg13\ProfileBundle\Entity\User $users
      */
-    public function removeUser(\adg13\AdminBundle\Entity\User $users)
+    public function removeUser(\adg13\ProfileBundle\Entity\User $users)
     {
         $this->users->removeElement($users);
     }

@@ -1,0 +1,3 @@
+adg13_notification_change_details:
+    pattern:  /user/edit_details/notification
+    defaults: { _controller: adg13NotificationBundle:Notification:detailsNot }

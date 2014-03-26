@@ -1,0 +1,56 @@
+{% extends ':Admin:index.html.twig' %}
+{% block body %}
+    <div class="container">
+        <div class="bs-docs-section">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="page-header">
+                        <h2 id="add_member">Details of task number: {{task.id}} from {{task.contactTime|date('Y-d-m')}}</h2>
+                    </div>
+                </div>           
+            </div>
+
+            <div class="well">
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-lg-12">
+                            <ul class="nav nav-tabs" style="margin-bottom: 15px;">
+                                <li class="active"><a href="#details" data-toggle="tab">Task details</a></li>
+                                <li><a href="#caller" data-toggle="tab">Caller</a></li>
+                                <li><a href="#contact" data-toggle="tab">Contact</a></li>
+                            </ul>
+                            <div id="myTabContent" class="tab-content">
+                                <div class="tab-pane fade active in" id="details">
+                                    <p>Task id: {{task.id}}</p>
+                                    <p>Member: {{task.user.personal.firstName}} {{task.user.personal.lastname}}</p>
+                                    <p>Description: {{task.description}}</p>
+                                    <p>Conditions: {{task.conditions}}</p>
+                                    <p>Contact Time: {{task.contactTime|date('Y-m-d H:i:s')}}</p>
+                                    <p>Return Time: {{task.returnTime|date('Y-m-d H:i:s')}}</p>
+                                    <p>Acceptation: {% if task.isAccepted %}Accepted{% else %}Rejected{% endif %}</p>
+                                </div>
+                                <div class="tab-pane fade" id="caller">
+                                    <p>Organisation: {{task.caller.organisation.name}}</p>
+                                    <p>Caller: {{task.caller.firstName}} {{task.caller.lastname}}</p>
+                                    <p>Telephon: {{task.caller.telephon}}</p>
+                                </div>
+                                <div class="tab-pane fade" id="contact">
+                                    <p>Contact name: {{task.contact.firstName}} {{task.contact.lastname}}</p>
+                                    <p>Address: {{ task.contact.address.toString }}</p>
+                                    <p>Telephon: {{task.contact.address.tel}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-lg-12">
+                        <a href="{{path('adg13_admin_show_tasks')}}" class="btn btn-primary"><-Back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

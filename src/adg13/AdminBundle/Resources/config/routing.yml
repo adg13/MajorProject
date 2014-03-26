@@ -5,23 +5,39 @@ adg13_notification:
 
 adg13_admin_map:
     pattern:    /admin/map
-    defaults:   { _controller: adg13AdminBundle:Admin:main }
+    defaults:   { _controller: adg13AdminBundle:Map:index }
 
 adg13_admin_map_add_markers:
     pattern:    /admin/map_add_markers
-    defaults:   { _controller: adg13AdminBundle:Map:addMarkers }
+    defaults:   { _controller: adg13AdminBundle:MapMarkers:index }
 
 adg13_admin_on_duty:
     pattern:    /admin/on_duty
     defaults:   { _controller: adg13AdminBundle:MembersOnDuty:index }
  
+adg13_admin_print_on_duty:
+    pattern:    /admin/on_duty/print_list_of_members_on_duty
+    defaults:   { _controller: adg13AdminBundle:MembersOnDuty:pdf }
+ 
 adg13_admin_add_member:
     pattern:    /admin/add_member
-    defaults:   { _controller: adg13AdminBundle:CreateUser:addMember } 
+    defaults:   { _controller: adg13AdminBundle:CreateUser:index } 
     
 adg13_admin_show_members:
     pattern:    /admin/show_members
-    defaults:   { _controller: adg13AdminBundle:ShowMembers:index }     
+    defaults:   { _controller: adg13AdminBundle:ShowMembers:index }  
+    
+adg13_admin_print_members:
+    pattern:    /admin/show_members/print_list_of_members
+    defaults:   { _controller: adg13AdminBundle:ShowMembers:pdf }  
+
+adg13_admin_show_detailed_members:
+    pattern:    /admin/show_members/details/{id}
+    defaults:   { _controller: adg13AdminBundle:ShowDetailedMember:index } 
+    
+adg13_admin_edit_detailed_members:
+    pattern:    /admin/show_members/edit/{id}
+    defaults:   { _controller: adg13AdminBundle:EditMember:index }
     
 adg13_logout:
     pattern:     /logout 

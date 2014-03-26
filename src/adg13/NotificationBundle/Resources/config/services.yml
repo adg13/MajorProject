@@ -1,0 +1,7 @@
+parameters:
+#    adg13_notification.example.class: adg13\NotificationBundle\Example
+
+services:
+#    adg13_notification.example:
+#        class: %adg13_notification.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

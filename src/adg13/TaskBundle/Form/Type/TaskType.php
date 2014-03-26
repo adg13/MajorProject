@@ -13,6 +13,7 @@ class TaskType extends AbstractType {
 
         $builder->add('user', 'entity', array(
             'required' => true,
+            'empty_value' => 'Choose a member',
             'class' => 'adg13ProfileBundle:User',
             'query_builder' => function(EntityRepository $er) {
         return $er->createQueryBuilder('u');
@@ -49,13 +50,13 @@ class TaskType extends AbstractType {
         ));
 
         $builder->add('contactTime', 'datetime', array(
-            'label' => 'Expected Contact Type',
+            'label' => 'Expected Contact Time',
             'required' => true,
             'empty_value' => array('year' => 'Year', 'month' => 'Month', 'day' => 'Day'),
         ));
 
         $builder->add('returnTime', 'datetime', array(
-            'label' => 'Expected Return Type',
+            'label' => 'Expected Return Time',
             'required' => true,
             'empty_value' => array('year' => 'Year', 'month' => 'Month', 'day' => 'Day'),
         ));

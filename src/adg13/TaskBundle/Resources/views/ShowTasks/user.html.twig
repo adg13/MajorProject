@@ -1,0 +1,49 @@
+{% extends ':User:index.html.twig' %}
+{% block body %}
+    <div class="container">
+        <div class="bs-docs-section">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="page-header">
+                        <h2 id="add_member">Tasks History</h2>
+                    </div>
+                </div>           
+            </div>
+        </div>
+    </div>
+    <div class="well">
+        <div class="row">
+            <div class="col-lg-12">  
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>#</th>  
+                                <th>Date</th>
+                                <th>Member</th>
+                                <th>Caller</th>
+                                <th>Organisation</th>
+                                <th>Contact</th>  
+                                <th>Address</th>
+                                <th>Acceptation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for task in tasks %}
+                                <tr>
+                                    <td>{{task.id}}</td>
+                                    <td>{{task.contactTime|date('Y-m-d H:i:s')}}</td>
+                                    <td>{{task.user.personal.firstName}} {{task.user.personal.lastname}}</td>
+                                    <td>{{task.contact.firstName}} {{task.contact.lastname}}</td>
+                                    <td>{{task.caller.organisation.name}}</td>
+                                    <td>{{task.caller.firstName}} {{task.caller.lastname}}</td>
+                                    <td>{{task.contact.address.toString}}</td>
+                                    <td>{% if task.isAccepted %}Accepted{% else %}Rejected{% endif %}</td>   
+                                </tr>
+                            {% endfor %}           
+                        </tbody>
+                    </table>
+                </div>   
+            </div>
+        </div>
+    {% endblock %}

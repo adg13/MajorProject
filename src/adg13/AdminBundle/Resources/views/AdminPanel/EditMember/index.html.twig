@@ -1,4 +1,4 @@
-{% extends 'adg13AdminBundle:AdminPanel:index.html.twig' %}
+{% extends ':Admin:index.html.twig' %}
 {% block css %}<link rel="stylesheet" href="/css/forms.css">{% endblock %}
 {% block body %}
 <div class="container">
@@ -6,12 +6,11 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="page-header">
-                    <h2 id="add_member">Create a New Member</h2>
+                    <h2 id="add_member">Edit member: {{user.personal.firstName}} {{user.personal.lastname}}</h2>
                 </div>
             </div>           
         </div>
         <!--Left form-->
         {%form_theme form 'adg13AdminBundle:Form:fields.html.twig'%}
-        {{ form(form, {'action': path('adg13_admin_add_member')}) }}
-{% endblock %}
-
+        {{ form(form) }}
+{% endblock %} 

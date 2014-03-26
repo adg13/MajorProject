@@ -1,4 +1,4 @@
-{% extends 'adg13UserBundle:Template:index.html.twig' %}    
+{% extends ':User:index.html.twig' %} 
 {% block body %}
 <div class="container">
     <div class="bs-docs-section">
@@ -48,15 +48,14 @@
                                 <p>Plates: {{ car.regPlates }}</p>
                                 <p>Engine: {{ car.engine }}</p>
                                 <p>Seats: {{ car.seats }}</p>
-                                {% endfor %}
-                                
+                                {% endfor %}                              
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
+        <a href="{{path('adg13_user_edit_details')}}" class="btn btn-primary">Edit</a>                    
     </div>
 </div>
 {% endblock %}

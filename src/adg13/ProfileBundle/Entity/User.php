@@ -90,11 +90,16 @@ class User implements UserInterface, JsonSerializable, \Serializable {
      * @ORM\OneToMany(targetEntity="adg13\UserBundle\Entity\Event", mappedBy="user", cascade={"persist"})
      */
     private $events;
-    
+
     /**
      * @ORM\OneToMany(targetEntity="adg13\TaskBundle\Entity\Task", mappedBy="user", cascade={"persist"})
      */
     private $tasks;
+
+    /**
+     * @ORM\OneToMany(targetEntity="adg13\NotificationBundle\Entity\Notification", mappedBy="user", cascade={"persist"})
+     */
+    private $notifications;
 
     public function __construct() {
         $this->events = new \Doctrine\Common\Collections\ArrayCollection();
@@ -107,9 +112,9 @@ class User implements UserInterface, JsonSerializable, \Serializable {
     }
 
     public function __toString() {
-        return $this->getPersonal()->getFirstName().' '.$this->getPersonal()->getLastname();
+        return $this->getPersonal()->getFirstName() . ' ' . $this->getPersonal()->getLastname();
     }
-    
+
     /**
      * @inheritDoc
      */
@@ -450,15 +455,13 @@ class User implements UserInterface, JsonSerializable, \Serializable {
         return $this;
     }
 
-
     /**
      * Add events
      *
      * @param \adg13\UserBundle\Entity\Event $events
      * @return User
      */
-    public function addEvent(\adg13\UserBundle\Entity\Event $events)
-    {
+    public function addEvent(\adg13\UserBundle\Entity\Event $events) {
         $this->events[] = $events;
 
         return $this;
@@ -469,8 +472,7 @@ class User implements UserInterface, JsonSerializable, \Serializable {
      *
      * @param \adg13\UserBundle\Entity\Event $events
      */
-    public function removeEvent(\adg13\UserBundle\Entity\Event $events)
-    {
+    public function removeEvent(\adg13\UserBundle\Entity\Event $events) {
         $this->events->removeElement($events);
     }
 
@@ -479,8 +481,7 @@ class User implements UserInterface, JsonSerializable, \Serializable {
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getEvents()
-    {
+    public function getEvents() {
         return $this->events;
     }
 
@@ -490,8 +491,7 @@ class User implements UserInterface, JsonSerializable, \Serializable {
      * @param \adg13\TaskBundle\Entity\Task $tasks
      * @return User
      */
-    public function addTask(\adg13\TaskBundle\Entity\Task $tasks)
-    {
+    public function addTask(\adg13\TaskBundle\Entity\Task $tasks) {
         $this->tasks[] = $tasks;
 
         return $this;
@@ -502,8 +502,7 @@ class User implements UserInterface, JsonSerializable, \Serializable {
      *
      * @param \adg13\TaskBundle\Entity\Task $tasks
      */
-    public function removeTask(\adg13\TaskBundle\Entity\Task $tasks)
-    {
+    public function removeTask(\adg13\TaskBundle\Entity\Task $tasks) {
         $this->tasks->removeElement($tasks);
     }
 
@@ -512,8 +511,41 @@ class User implements UserInterface, JsonSerializable, \Serializable {
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getTasks()
-    {
+    public function getTasks() {
         return $this->tasks;
+    }
+
+
+    /**
+     * Add notifications
+     *
+     * @param \adg13\NotificationBundle\Entity\Notification $notifications
+     * @return User
+     */
+    public function addNotification(\adg13\NotificationBundle\Entity\Notification $notifications)
+    {
+        $this->notifications[] = $notifications;
+
+        return $this;
+    }
+
+    /**
+     * Remove notifications
+     *
+     * @param \adg13\NotificationBundle\Entity\Notification $notifications
+     */
+    public function removeNotification(\adg13\NotificationBundle\Entity\Notification $notifications)
+    {
+        $this->notifications->removeElement($notifications);
+    }
+
+    /**
+     * Get notifications
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getNotifications()
+    {
+        return $this->notifications;
     }
 }

@@ -2,7 +2,87 @@ adg13\TaskBundle\Entity\Task:
     properties:
         description:
             - NotBlank: { message: "Please insert description!" }
+            - Length:
+                min: 2 
+                max: 255
+                minMessage: "Description must be at least {{ limit }} characters length."
+                maxMessage: "Conditions cannot be longer than {{ limit }} characters length."
+        conditions:
+            - NotBlank: { message: "Please enter conditions!" }
+            - Length:
+                min: 2 
+                max: 255
+                minMessage: "Conditions must be at least {{ limit }} characters length."
+                maxMessage: "Conditions cannot be longer than {{ limit }} characters length."
+        isAccepted:
+            - NotBlank: { message: "Please say if accepted!" }
+            - Choice:
+                choices:  [Yes, No]
+                message:  "Please choose a valid gender!"
+        contactTime:
+            - NotBlank: { message: "Please enter a contact time!" }
+            - Date: {message: "Please enter a correct contact time."} 
+        returnTime:
+            - NotBlank: { message: "Please enter a return time!" }
+            - Date: {message: "Please enter a correct return time."}          
+        caller:
+            - Valid:
+        contact:
+            - Valid: ~
 
-                             
+adg13\TaskBundle\Entity\Caller:
+    properties:    
+        firstName:
+            - NotBlank: { message: "Please enter a first name!" }
+            - Length:
+                min: 2 
+                max: 50
+                minMessage: "First name must be at least {{ limit }} characters length."
+                maxMessage: "First name cannot be longer than {{ limit }} characters length."
+        lastname:
+            - NotBlank: { message: "Please enter a lastname!" }
+            - Length:
+                min: 2 
+                max: 50
+                minMessage: "Lastname must be at least {{ limit }} characters length."
+                maxMessage: "Lastname cannot be longer than {{ limit }} characters length."
+        telephon:
+            - NotBlank: { message: "Please enter a telephon number!" }
+            - Length:
+                min: 11 
+                max: 13
+                minMessage: "Telephon number be at least {{ limit }} characters length."
+                maxMessage: "Telephon number cannot be longer than {{ limit }} characters length."
+        organisation:
+            - Valid: ~    
 
-            
+adg13\TaskBundle\Entity\Organisation:    
+    properties:    
+        name:
+            - NotBlank: { message: "Please enter an organisation name!" }
+            - Length:
+                min: 2 
+                max: 50
+                minMessage: "Organisation name must be at least {{ limit }} characters length."
+                maxMessage: "Organisation name cannot be longer than {{ limit }} characters length."
+        
+adg13\TaskBundle\Entity\Contact:
+    properties:    
+        firstName:
+            - NotBlank: { message: "Please enter a first name!" }
+            - Length:
+                min: 2 
+                max: 50
+                minMessage: "First name must be at least {{ limit }} characters length."
+                maxMessage: "First name cannot be longer than {{ limit }} characters length."
+        lastname:
+            - NotBlank: { message: "Please enter a lastname!" }
+            - Length:
+                min: 2 
+                max: 50
+                minMessage: "Lastname must be at least {{ limit }} characters length."
+                maxMessage: "Lastname cannot be longer than {{ limit }} characters length."
+        gridReference:
+            - NotBlank: { message: "Please enter a GRID reference!" }
+        address:
+            - Valid: ~ 

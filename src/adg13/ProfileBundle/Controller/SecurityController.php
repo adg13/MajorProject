@@ -13,7 +13,7 @@ class SecurityController extends Controller {
                         'adg13ProfileBundle:Homepage:homepage.html.twig');
     }
 
-    public function loginAction() {
+    public function indexAction() {
         $request = $this->getRequest();
         $session = $request->getSession();
 

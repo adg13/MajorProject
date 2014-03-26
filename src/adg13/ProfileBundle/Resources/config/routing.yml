@@ -4,7 +4,7 @@ adg13_homepage:
     
 adg13_login:
     pattern: /login
-    defaults:   { _controller: adg13ProfileBundle:Security:login }
+    defaults:   { _controller: adg13ProfileBundle:Security:index }
     
 adg13_login_check:
     pattern: /login_check    

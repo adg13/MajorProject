@@ -31,8 +31,7 @@ class UserType extends AbstractType {
         
         $builder->add('cars', 'collection', array(
             'type' => new CarType,
-            'allow_add'    => true,
-            'widget' => 'prototype'
+            'allow_add'    => true
             ));
         
         $builder->add('privilidges', new PrivilidgesType());

@@ -54,11 +54,6 @@ class CarType extends AbstractType {
                 'placeholder' => 'Number of seats',
             )
         ));
-        
-        $builder->add('addAnotherOne', 'submit', array(
-            'label' => 'Add a car',
-            'attr' => array('class' => 'btn btn-info'),
-        ));
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver) {

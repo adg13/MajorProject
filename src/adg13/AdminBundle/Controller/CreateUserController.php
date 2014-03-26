@@ -15,7 +15,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class CreateUserController extends Controller {
 
-    public function addMemberAction(Request $request) {
+    public function indexAction(Request $request) {
         
         $user = new User();
         $personal = new Personal();
@@ -59,7 +59,7 @@ class CreateUserController extends Controller {
                     ->setTo($user->getEmail())
                     ->setBody(
                     $this->renderView(
-                            'adg13AdminBundle:AdminPanel/EmailTemplate:EmailTemplate.html.twig', array(
+                            'adg13AdminBundle:AdminPanel/EmailTemplate:index.html.twig', array(
                                 'name' => $user->getPersonal()->getFirstName().' '.$user->getPersonal()->getLastname(),
                                 'password' => $plainPassword
                 )));
@@ -71,7 +71,7 @@ class CreateUserController extends Controller {
             ));
         }
 
-        return $this->render('adg13AdminBundle:AdminPanel/AddMember:AddMember_page_1.html.twig', array(
+        return $this->render('adg13AdminBundle:AdminPanel/AddMember:index.html.twig', array(
                     'form' => $form->createView()
         ));
     }

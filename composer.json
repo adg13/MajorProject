@@ -34,7 +34,9 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "braincrafted/bootstrap-bundle": "~2.0",
          "twbs/bootstrap": "3.0.*",
-        "jquery/jquery":  "1.10.*"
+        "jquery/jquery":  "1.10.*",
+        "knplabs/knp-snappy-bundle": "dev-master",
+        "h4cc/wkhtmltopdf-i386": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [

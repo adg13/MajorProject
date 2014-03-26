@@ -1,3 +1,15 @@
 adg13_task_add_task:
     pattern:  /admin/add_task
     defaults: { _controller: adg13TaskBundle:AddTask:index }
+    
+adg13_admin_show_tasks:
+    pattern:    /admin/show_tasks
+    defaults:   { _controller: adg13TaskBundle:ShowTasks:admin }
+    
+adg13_admin_show_detailed_tasks:
+    pattern:    /admin/show_tasks/details/{id}
+    defaults:   { _controller: adg13TaskBundle:ShowDetailedTask:index }
+    
+adg13_user_show_tasks:
+    pattern:    /user/show_tasks
+    defaults:   { _controller: adg13TaskBundle:ShowTasks:user }
